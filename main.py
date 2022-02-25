@@ -5,6 +5,21 @@ import math
 # If you have anything outside of a function, 
 # then you do not fully understand functions
 # and should review how they work or ask for help
+y = math.sin(math.radians(270))
+print(y)
+z = math.sin(math.radians(360))
+print(z)
+
+wn = turtle.Screen()
+fred = turtle.Turtle()
+fred.goto(50,50)
+fred.goto(-100,60)
+fred.goto(-100,-75)
+fred.goto(250,-75)
+fred.goto(0,0)
+wn.exitonclick()
+
+
 
 
 
