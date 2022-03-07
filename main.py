@@ -11,20 +11,20 @@ ymin = -1
 ymax = 1
 
 def drawSineCurve(dart):
-  dart.color("green")
+  dart.color("blue")
   dart.down()
-  for x in range (xmin, xmax + 1, 1):
-    dart.goto(x, math.sin(math.radians(x)))
-    dart.up()
-    dart.goto(xmin, 0)
-
+  for z in range (xmin, xmax+1, 1):
+    dart.goto(z, math.sin(math.radians(z)))
+  dart.up()
+  dart.goto(xmin, 0)
+  
 def setupWindow(wn):
   wn.setworldcoordinates(xmin, ymin, xmax, ymax)
   wn.bgcolor("white")
 
 def setupAxis(dart):
   dart.up()
-  dart.color("blue")
+  dart.color("brown")
   for z in (ymin, ymax):
     dart.goto(xmin, 0)
     dart.down()
@@ -44,6 +44,7 @@ def setupAxis(dart):
       dart.goto(0, ymax)
       dart.write("Y")
       dart.goto(xmin, 0)
+  dart.down()
 
 def drawCosineCurve(dart):
   dart.color("red")
@@ -52,7 +53,7 @@ def drawCosineCurve(dart):
     dart.goto(z, math.cos(math.radians(z)))
   dart.up()
   dart.goto(xmin, 0)
-
+  
 def drawTangentCurve(dart):
   dart.color("green")
   dart.down()
