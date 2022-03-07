@@ -29,10 +29,10 @@ def setupAxis(dart):
     dart.goto(xmin, 0)
     dart.down()
     dart.goto(xmax, 0)
-  dart.goto(xmin - 25, 0)
+  dart.goto(xmin - 20, 0)
   dart.write("X")
 
-  for z in range (xmin, xmax + 1, 50):
+  for z in range (xmin, xmax + 1, 45):
     if z==0 or z==xmin or z==xmax:
             dart.color("black")
     else:
@@ -43,8 +43,23 @@ def setupAxis(dart):
       dart.up()
       dart.goto(0, ymax)
       dart.write("Y")
+      dart.goto(xmin, 0)
 
-    
+def drawCosineCurve(dart):
+  dart.color("red")
+  dart.down()
+  for z in range(xmin, xmax+1, 1):
+    dart.goto(z, math.cos(math.radians(z)))
+  dart.up()
+  dart.goto(xmin, 0)
+
+def drawTangentCurve(dart):
+  dart.color("green")
+  dart.down()
+  for z in range(xmin, xmax+1, 1):
+    dart.goto(z, math.tan(math.radians(z)))
+  dart.up()
+  dart.goto(xmin, 0)
       
 ##########  Do Not Alter Any Code Past Here ########
 def main():
@@ -60,6 +75,8 @@ def main():
     setupAxis(dart)
     dart.speed(0)
     drawSineCurve(dart)
+    drawCosineCurve(dart)
+    drawTangentCurve(dart)
     wn.exitonclick()
 
 main()
